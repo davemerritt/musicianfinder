@@ -16,7 +16,7 @@ gem 'pg'
 #seed text
  gem 'faker'
 
-#
+ gem 'geocoder'
  gem 'sorcery'
  gem 'paperclip'
 
