@@ -13,8 +13,10 @@ end
 # Use postgresql as the database for Active Record
 gem 'pg'
 
-#Seed text
+#seed text
  gem 'faker'
+
+#
  gem 'sorcery'
  gem 'paperclip'
 
