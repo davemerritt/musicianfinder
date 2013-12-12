@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 
   validates :email, uniqueness: true
 
-  after_validation :geocode
+  after_validation :geocode, :if => :postal_code_changed?
   def full_name
     full_name = first_name.capitalize + " " + last_name.capitalize 
   end 
