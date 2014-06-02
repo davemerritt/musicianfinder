@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140107194415) do
+ActiveRecord::Schema.define(version: 20140602140430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,26 +24,6 @@ ActiveRecord::Schema.define(version: 20140107194415) do
     t.integer  "user_id"
     t.boolean  "read",         default: false
   end
-
-  create_table "messages", force: true do |t|
-    t.string   "topic"
-    t.text     "body"
-    t.integer  "received_messageable_id"
-    t.string   "received_messageable_type"
-    t.integer  "sent_messageable_id"
-    t.string   "sent_messageable_type"
-    t.boolean  "opened",                     default: false
-    t.boolean  "recipient_delete",           default: false
-    t.boolean  "sender_delete",              default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "ancestry"
-    t.boolean  "recipient_permanent_delete", default: false
-    t.boolean  "sender_permanent_delete",    default: false
-  end
-
-  add_index "messages", ["ancestry"], name: "index_messages_on_ancestry", using: :btree
-  add_index "messages", ["sent_messageable_id", "received_messageable_id"], name: "acts_as_messageable_ids", using: :btree
 
   create_table "pg_search_documents", force: true do |t|
     t.text     "content"
@@ -79,12 +59,14 @@ ActiveRecord::Schema.define(version: 20140107194415) do
     t.datetime "created_at"
   end
 
-  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
 
   create_table "tags", force: true do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "taggings_count", default: 0
   end
+
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email"
