@@ -1,13 +1,11 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '2.1.2'
 
-  gem 'rails', '4.0.2'
+  gem 'rails', '4.1.6'
 
   gem 'pg'
   gem 'pg_search' #full-text search for postgres
 
-  gem 'thin'
-  gem 'faker'
   gem 'sorcery'
 
   gem 'paperclip', '3.5.2'
@@ -24,15 +22,15 @@ ruby '2.0.0'
 
   gem 'jquery-rails'
   gem 'jquery-ui-rails'
-  gem 'jbuilder', '~> 1.2'
 
-  #gem 'turbolinks'
-
+ # gem 'jbuilder', '~> 1.2'
 group :doc do
   gem 'sdoc', require: false
 end
 
 group :development do
+  gem 'spring'
+  gem 'faker' #Used for seed data creation
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'quiet_assets'
@@ -40,7 +38,8 @@ group :development do
 end
 
 group :development, :test do
-  gem 'jazz_hands' #pry, #awesome_print and more
+  gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
+  gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'guard-rspec'
 end
@@ -51,6 +50,7 @@ group :test do
 end
 
 group :production do
+  gem 'unicorn'
   gem 'rails_12factor'
   gem 'newrelic_rpm'
 end
