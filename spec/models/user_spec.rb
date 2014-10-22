@@ -66,13 +66,6 @@ describe User do
     it { should_not be_valid }
   end
 
-
-  describe "when city is not present" do
-    before { @user.city = " " }
-    it { should_not be_valid }
-  end
-
-
   describe "when postal_code is not present" do
     before { @user.postal_code = " " }
     it { should_not be_valid }
