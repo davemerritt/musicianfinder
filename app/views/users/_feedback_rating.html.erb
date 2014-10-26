@@ -1,6 +1,7 @@
-  <li>Time feedback was left: <%= @user.target_references.sum(:feedback_value) %></li>
-  <li>Feedback Score: <%= number_to_percentage((100*
-  @user.target_references.where(feedback_value: 1).count / 
+<ul>
+  <li><b>Total: <%= @user.target_references.sum(:feedback_value) %></li><b>
+  <b><li>Quality: <%= number_to_percentage((100*
+  @user.target_references.where(feedback_value: 1).count /
    [(@user.target_references.where(feedback_value: 1).count +
-   @user.target_references.where(feedback_value: -1).count),1].max.to_f), precision: 1) %></li>
-  
+   @user.target_references.where(feedback_value: -1).count),1].max.to_f), precision: 1) %></li><b>
+</ul>

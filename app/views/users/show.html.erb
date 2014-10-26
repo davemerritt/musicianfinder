@@ -1,19 +1,35 @@
 <div class="row">
-  <div class="large-9 columns medium-9 columns">
-    <h2><%= @user.full_name %></h2>   
-    <p>
-      <%= image_tag @user.avatar.url(:medium) %><br>
-      <span class="user-attr">City: </span><%= @user.city %><br>
-      <span class="user-attr">Instruments: </span><%= @user.instrument_list %><br>
-      <span class="user-attr">Prefered Genres: </span><%= @user.genre_list %><br><br>
-      <span class="user-attr">Biography: </span><%= @user.bio %><br><br>
-      <span class="user-attr">Looking For: </span><%= @user.looking_for %><br><br>
-      <a href=<%="#{@user.personal_url}"%>>My Website</a><br>
-    </p>
-    <hr />
+  <div class="small-9 columns">
+      <div id="musician-show-bio">
+        <div id="musician-name-img">
+          <div class="user-name">
+        </div>
+          <h2><%= @user.full_name %></h2>
+            <div id="musician-show-img">
+              <%= image_tag @user.avatar.url(:medium) %>
+            </div>
+            <hr />
+        </div>
+
+        <span class="show-attr">City:</span> <%= @user.city %>
+         <% if current_user != @user %>
+          - <%= @user.distance_to(current_user, :km).round(1) %> KM from you
+        <% end %><br>
+        <span class="show-attr">Genres:</span>
+          <%= @user.genre_list %><br>
+        <span class="show-attr">Instruments:</span>
+          <%= @user.instrument_list %><br>
+
+        <span class="show-attr">Biography:</span>
+          <%= @user.bio %><br><br>
+        <span class="show-attr">Looking for:</span>
+          <%= @user.looking_for %><br><br>
+          <a href=<%="#{@user.personal_url}"%>>My Website</a>
+    </div>
   </div>
-  <div class="large-3 columns medium-9 columns">
-    <a href="#ref"><h4>Feedback Rating</h4></a>
+
+  <div class="small-2 end medium-3 columns">
+    <h3>Feedback Rating</h3>
     <div id="feedback-rating">
       <%= render "feedback_rating" %>
     </div>
@@ -21,24 +37,34 @@
 </div>
 
 <div class="row">
-  <ul class="large-block-grid-2 medium-block-grid-1 small-block-grid-1">  
+  <div class="small-10 small-centered medium-8 large-uncentered large-6 columns">
+  <ul>
     <li id="new-message">
       <%= render "new_message" %>
     </li>
-    <li id="new-reference">  
-      <%= render "new_reference" %>
-    </li> 
-  </ul>
+   </ul>
+  </div>
+
+  <div class="small-10 small-centered medium-8 large-uncentered large-6 columns">
+    <ul>
+      <li id="new-reference">
+        <%= render "new_reference" %>
+      </li>
+    </ul>
+  </div>
 </div>
 
+
 <div class="row" id="ref">
+  <div class="small-10 small-centered medium-8 large-uncentered large-6 columns">
   <% if @user.target_references.count >= 1 %>
     <h4>References left for <%= @user.first_name.capitalize %></h4>
   <% else %>
     <h4>Be the first to leave a reference for <%= @user.first_name.capitalize %>!</h4>
   <% end %>
+</div>
 <hr/>
-  <ul class="large-block-grid-3 medium-block-grid-2 small-block-grid-1" id="references">
+    <ul class="small-block-grid-1 medium-block-grid-1 large-block-grid-3" id="references">
     <%= render "references" %>
   </ul>
 </div>

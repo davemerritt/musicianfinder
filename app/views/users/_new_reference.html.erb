@@ -1,9 +1,9 @@
 <% if current_user %>
 
 <h4>Leave a Reference for <%= @user.first_name.capitalize %></h4>
- 
+
   <%= form_for([@user, @reference], remote: true ) do |f| %>
-    <div id="reference-form-errors" > 
+    <div id="reference-form-errors" >
       <%= render :partial => "/users/reference_form_errors" %>
     </div>
 
@@ -11,8 +11,10 @@
     <div>
       <%= f.radio_button :feedback_value, 1 %>
       <%= f.label :feedback_value, "Positive" %>
+
       <%= f.radio_button :feedback_value, 0 %>
       <%= f.label :feedback_value, "Neutral" %>
+
       <%= f.radio_button :feedback_value, -1 %>
       <%= f.label :feedback_value, "Negative" %>
     </div>
@@ -28,8 +30,8 @@
       <%= f.check_box :recorded %>
       <%= f.label :recorded, "We've recorded together" %>
     </div>
-  
-    <%= f.submit "Leave Reference", :class => "button radius tiny" %>
+
+    <%= f.submit "Leave Reference", class: "button radius small" %>
   <% end %>
 <% else %>
   <p>Please <%= link_to 'log in', new_session_path %> to leave a reference.</p>

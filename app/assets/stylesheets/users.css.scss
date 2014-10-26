@@ -2,3 +2,87 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+#musician-name-img{
+  text-align:center;
+}
+
+#musician-img{
+  text-align:center;
+  display: table-cell, block;
+  vertical-align: middle;
+  margin:auto;
+  height: 100px
+}
+
+#musician-home-block{
+  margin: auto;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  background-color: #f9f9f9;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #DDD;
+  min-height: 335px;
+  max-width: 400px
+}
+
+#musician-show-img{
+  text-align:center;
+  display: table-cell, block;
+  vertical-align: middle;
+  margin:auto;
+}
+
+#musician-show-bio{
+  padding: 1rem 2rem ;
+  text-align: left;
+  background-color: #f9f9f9;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #DDD;
+  font-size: 14px;
+}
+
+#container{
+  margin: 0.5rem, 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  background-color: #f9f9f9;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #DDD;
+}
+
+.show-attr{
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.user-name{
+  font-size: 23px;
+  margin: 15px 0;
+}
+
+.user-attr{
+  margin: 20px 0px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.title{
+  font-family: 'Oranienbaum', serif;
+  letter-spacing: 1.8px;
+  line-height: 120%;
+  margin: 10px 10px;
+  margin-bottom: 0px;
+  padding: 10px 5%;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.tag-line{
+  margin: 0 10px;
+  padding: 10px 5%;
+  font-size: 16px;
+}

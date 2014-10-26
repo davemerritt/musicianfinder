@@ -31,7 +31,7 @@
                   <%= text_field_tag :query, params[:query], placeholder: "Search" %>
                 <% end %>
               </li>
-              <% if current_user %>
+            <% if current_user %>
               <li>
                 <%= link_to "My Messages(#{current_user.invitations_received.where(recipient_read: false).count})", user_invitations_path(current_user.id) %>
               </li>
@@ -64,7 +64,7 @@
                   <li>
                     <%= link_to "Logout", :logout, method: :post %>
                   </li>
-                  <% else %>
+              <% else %>
                   <ul class="right">
                   <li>
                     <%= link_to "Register", join_path %>
@@ -73,7 +73,7 @@
                     <%= link_to "Login", :login %>
                   </li>
                 </ul>
-                <% end %>
+              <% end %>
                 </ul>
               </li>
             </ul>

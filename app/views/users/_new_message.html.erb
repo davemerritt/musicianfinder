@@ -1,13 +1,13 @@
 <%= form_for([@user, @invitation], remote: true ) do |f| %>
-  <div id="message-form-errors" > 
+  <div id="message-form-errors" >
     <%= render :partial => "/users/message_form_errors" %>
   </div>
 
   <%= f.hidden_field :recipient_id %>
-  
+
   <h4>Contact <%= @user.first_name.capitalize %></h4>
 
   <%= f.text_area :content %>
 
-  <%= f.submit "Send Message", :class => "button radius tiny" %>
+  <%= f.submit "Send Message", :class => "button radius small" %>
 <% end %>

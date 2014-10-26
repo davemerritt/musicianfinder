@@ -1,9 +1,9 @@
-<div class="row">    
-  <ul class="large-block-grid-3 medium-block-grid-2 small-block-grid-1">
+<div class="row">
+  <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
     <% @my_refs.each do |ref| %>
       <li>
         <% if ref.target %>
-          <h4>Reference Left For: <%= link_to ref.target.full_name, "/users/#{ref.target.id}" %></h4> 
+          <h4>Reference Left For: <%= link_to ref.target.full_name, "/users/#{ref.target.id}" %></h4>
         <% end %>
         <p>
       <div class="<%= ref.feedback_textifier %>">Feedback: <%= ref.feedback_textifier %>
@@ -20,4 +20,3 @@
     <% end %>
   </ul>
 </div>
-  

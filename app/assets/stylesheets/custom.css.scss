@@ -7,27 +7,7 @@ a:hover{
   transition: .5s;
 }
 
-h1{
-  font-family: 'Oranienbaum', serif;
-}
-
-h2{
-  font-family: 'Oranienbaum', serif;
-}
-
-h3{
-  font-family: 'Oranienbaum', serif;
-}
-
-h4{
-  font-family: 'Oranienbaum', serif;
-}
-
-h5{
-  font-family: 'Oranienbaum', serif;
-}
-
-h6{
+h1,h2,h3,h4,h5,h6{
   font-family: 'Oranienbaum', serif;
 }
 
@@ -68,68 +48,6 @@ hr{
   line-height: 42px;
 }
 
-#musician-name-img{
-  text-align:center;
-}
-
-#musician-img{
-  text-align:center;
-  display: table-cell, block;
-  vertical-align: middle;
-  margin:auto;
-  height: 100px
-}
-
-#musician-home-block{
-
-  margin: auto;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  background-color: #f9f9f9;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #DDD;
-  min-height: 335px;
-  max-width: 400px
-}
-
-#container{
-  margin: 0.5rem, 1rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  background-color: #f9f9f9;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #DDD;
-}
-
-.user-name{
-  font-size: 23px;
-  margin: 15px 0;
-}
-
-.user-attr{
-  margin: 20px 0;
-  font-weight: bold;
-  font-size: 13px;
-}
-
-.title{
-  font-family: 'Oranienbaum', serif;
-  letter-spacing: 1.5px;
-  line-height: 120%;
-  margin: 10px;
-  padding: 10px 10px 10px 50px;
-  font-weight: bold;
-  font-size: 25px;
-}
-
-.tag-line{
-  text-align: centre;
-  margin: 0 10px;
-  padding: 0 10px 10px 50px;
-  font-size: 16px;
-}
 
 .top-bar{
   background: -webkit-linear-gradient(top, #2e9bd4 0%, #116d9e 100%);
@@ -177,4 +95,12 @@ hr{
 
 .unread_mail td{
   font-weight: bold;
+}
+
+textarea{
+   min-height: 110px;
+}
+
+textarea#invitation_content{
+   min-height: 225px;
 }

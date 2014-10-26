@@ -3,34 +3,36 @@
   <h3>Change the Reference you left for <%= @user.first_name %></h3>
 
   <%= form_for([@user, @reference]) do |f| %>
-    <div id="reference-form-errors" > 
+    <div id="reference-form-errors" >
        <%= render :partial => "/users/reference_form_errors" %>
     </div>
 
     <br/>
     <%= f.text_area :comment %>
-    
+
     <%= f.radio_button :feedback_value, 1 %>
     <%= f.label :feedback_value, "Positive" %>
+
     <%= f.radio_button :feedback_value, 0 %>
     <%= f.label :feedback_value, "Neutral" %>
+
     <%= f.radio_button :feedback_value, -1 %>
     <%= f.label :feedback_value, "Negative" %>
-    
+
     <%= f.check_box :jammed %>
     <%= f.label :jammed, "We've jammed together" %>
-    
+
     <%= f.check_box :performed %>
     <%= f.label :performed, "We've performed together" %>
-    
+
     <%= f.check_box :recorded %>
     <%= f.label :recorded, "We've recorded together" %>
-    
+
     <%= f.submit "Update Reference",:class => "button radius tiny" %>
-    
+
   <% end %>
 <% else %>
   <p>Please <%= link_to 'log in', new_session_path %> to leave a reference.</p>
-<% end %> 
+<% end %>
 <hr>
-<%= link_to "Back to My References", user_references_path %> 
+<%= link_to "Back to My References", user_references_path %>

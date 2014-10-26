@@ -1,13 +1,15 @@
 Musicianfinder::Application.routes.draw do
   root :to => 'users#index'
-  get '/users/:id/invitations/:invitation_id/read' => "invitations#read", :as => "mark_as_read"
+  #get '/users/:id/invitations/:invitation_id/read' => "invitations#read", :as => "mark_as_read"
+
 
   resources :password_resets
   resources :user_sessions
   resources :users do
     resources :references
-    resources :invitations
+    resources :invitations, shallow: true
   end
+  patch '/invitations/:id/read' => "invitations#read", as: "toggle_read_invitation"
 
   get 'tags/:tag', to: 'users#index', as: :tag
 

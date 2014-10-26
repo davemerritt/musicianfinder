@@ -8,7 +8,7 @@ ruby '2.1.2'
 
   gem 'sorcery'
 
-  gem 'paperclip', '3.5.2'
+  gem 'paperclip', '3.5.4'
   gem 'aws-sdk' #required for Amazon S3 paperclip
   gem "kaminari" #for pagination
   gem 'foundation-rails'
