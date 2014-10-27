@@ -44,6 +44,9 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         auto_login(@user)
+        #Send a welcome email
+        UserMailer.welcome_email(@user).deliver
+
         format.html { redirect_to(:users, notice: 'Welcome to Homebass.') }
         format.json { render action: 'show', status: :created, location: @user }
       else

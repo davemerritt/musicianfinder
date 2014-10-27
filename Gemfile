@@ -23,6 +23,7 @@ ruby '2.1.2'
   gem 'jquery-rails'
   gem 'jquery-ui-rails'
 
+  gem 'unicorn'
  # gem 'jbuilder', '~> 1.2'
 group :doc do
   gem 'sdoc', require: false
@@ -35,6 +36,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'quiet_assets'
   gem 'sunspot_solr'
+  gem 'letter_opener'
 end
 
 group :development, :test do
@@ -50,7 +52,6 @@ group :test do
 end
 
 group :production do
-  gem 'unicorn'
   gem 'rails_12factor'
   gem 'newrelic_rpm'
 end

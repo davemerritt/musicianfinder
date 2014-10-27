@@ -28,4 +28,6 @@ Musicianfinder::Application.configure do
   config.assets.debug = true
 
   Paperclip.options[:command_path] = "/usr/bin/convert"
+
+  config.action_mailer.delivery_method = :letter_opener
 end

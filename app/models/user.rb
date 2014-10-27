@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
 
   validates_confirmation_of :password
 
-  validates_length_of :password, :minimum => 6, :allow_blank => false, :on => :create
+  validates_length_of :password, :minimum => 6, :allow_blank => false, on: [:create, :update]
   validates_length_of :first_name, :maximum => 35
   validates_length_of :last_name, :maximum => 35
 

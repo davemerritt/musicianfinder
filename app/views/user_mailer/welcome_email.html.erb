@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to homebass.ca, <%= @user.first_name %></h1>
+    <p>
+      You have successfully signed up to Homebass,
+      Canada's #1 Source for Non-Flakey Musicians!<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: <a href="http://homebass.ca/login">homebass.ca/login</a>
+    <p>A reminder, you registered with the following e-mail address: <%= @user.email %>.
+     <p>If you forget your password, you can reset it from the login page.
+     We can't retrieve it as it's stored in a one-way encrypted form.</p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>
