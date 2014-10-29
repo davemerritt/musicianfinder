@@ -92,6 +92,7 @@ GEM
     debugger-linecache (1.2.0)
     diff-lcs (1.2.5)
     diffy (3.0.7)
+    docile (1.1.5)
     erubis (2.7.0)
     execjs (2.2.2)
     factory_girl (4.5.0)
@@ -259,6 +260,11 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    simplecov (0.9.1)
+      docile (~> 1.1.0)
+      multi_json (~> 1.0)
+      simplecov-html (~> 0.8.0)
+    simplecov-html (0.8.0)
     slop (3.6.0)
     sorcery (0.8.6)
       bcrypt (~> 3.1)
@@ -325,6 +331,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 4.0.0)
   sdoc
+  simplecov
   sorcery
   spring
   sunspot_solr
