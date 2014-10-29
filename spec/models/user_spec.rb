@@ -71,6 +71,17 @@ describe User do
     it { should_not be_valid }
   end
 
+  describe "url without /https?/" do
+    let(:no_http_url) { "welz.ca" }
+
+    it "should be saved with http:// prepended" do
+      @user.personal_url = no_http_url
+      @user.save
+
+      expect(@user.reload.personal_url).to eq "http://welz.ca"
+      end
+  end
+
   describe "when password is not present" do
     before do
       @user = FactoryGirl.build(:user, password: " ", password_confirmation: " ")
@@ -82,4 +93,5 @@ describe User do
     before { @user.password_confirmation = "mismatch" }
     it { should_not be_valid }
   end
+
 end

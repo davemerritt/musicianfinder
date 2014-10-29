@@ -6,7 +6,9 @@ describe Reference do
     @reference = source_user.target_references.build(comment: "comment",
                                               feedback_value: 0,
                                               source_id: source_user.id,
-                                              target_id: source_user.id + 1)
+                                              target_id: source_user.id + 1,
+                                              jammed: true,
+                                              performed: false)
   end
 
   subject { @reference }
@@ -36,5 +38,16 @@ describe Reference do
     it { should_not be_valid }
   end
 
+  describe "feedback_textifier" do
+    it "should provide textual output" do
+      expect(@reference.feedback_textifier).to eq "Neutral"
+    end
+  end
 
+  describe "check" do
+    it "should provide symbols based on boolean values" do
+      expect(@reference.check("jammed")).to eq "✓"
+      expect(@reference.check("performed")).to eq "✗"
+    end
+  end
 end
