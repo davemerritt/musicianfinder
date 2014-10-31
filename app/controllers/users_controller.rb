@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   skip_before_filter :require_login, only: [:index, :new, :create]
   before_filter :set_user, only: [:show, :edit, :update, :destroy]
+  #before_filter :debug
 
   def index
       #select option doesn't appear unless current_user
@@ -22,7 +23,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
     @recipient = User.find(params[:id])
       if current_user
         @reference = @user.target_references.build
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+    @user = User.new()
   end
 
   def edit
@@ -40,9 +40,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
+
         auto_login(@user)
         #Send a welcome email
         UserMailer.welcome_email(@user).deliver
@@ -98,5 +98,9 @@ class UsersController < ApplicationController
                                  :looking_for,
                                  :personal_url,
                                  :avatar)
+  end
+
+  def debug
+    puts params.inspect
   end
 end

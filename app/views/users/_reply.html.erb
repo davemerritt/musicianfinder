@@ -1,18 +1,16 @@
 <div class="row">
-  <div class="small-6 columns">
+   <div class="small-10 small-centered columns">
     <%= form_for([@user, @reply], remote: true ) do |f| %>
       <div id="message-form-errors">
         <%= render :partial => "/users/message_form_errors" %>
       </div>
-  </div>
+    </div>
+
 
     <%= f.hidden_field :recipient_id, value: "#{@invitation.user_id}" %>
 
-    <div class="small-6 columns">
-      <%= f.label "Contact this user here!" %>
+      <%= f.label "Reply" %>
       <%= f.text_area :content %>
-      <%= f.submit "Send", :class => "button radius tiny"  %>
-    </div>
-
+      <%= f.submit "Send", :class => "button radius small"  %>
   <% end %>
 </div>

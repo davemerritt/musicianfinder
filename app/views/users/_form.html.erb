@@ -1,75 +1,75 @@
-<div class="row">
-  <div class="small-10 small-centered medium-8 large-6 columns">
-  <%= form_for @user, html: { multipart: true } do |f| %>
-    <% if @user.errors.any? %>
+<%= form_for @user, html: { multipart: true } do |f| %>
+  <% if @user.errors.any? %>
+    <div class="row">
+      <div class="small-10 small-centered medium-8 large-uncentered large-6 columns">
         <h2>
           <%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:
         </h2>
-        <ul>
-          <% @user.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-    <% end %>
-  </div>
-</div>
-
-    <div class="row">
-      <div class="small-10 small-centered medium-8 large-uncentered large-6 columns">
-
-      <div class="row">
-        <div class="required">
-          <div class="small-6 columns">
-            <%= f.label :first_name, "First Name" %>
-            <%= f.text_field :first_name %>
-          </div>
-          <div class="small-6 columns">
-            <%= f.label :last_name, "Last Name" %>
-            <%= f.text_field :last_name %>
-          </div>
-        </div>
-      </div>
-
-        <div class="required">
-
-          <%= f.label :email %>
-          <%= f.text_field :email %>
-
-          <%= f.label :password %>
-          <%= f.password_field :password %>
-
-          <%= f.label :password_confirmation, "Confirm Password" %>
-          <%= f.password_field :password_confirmation %>
-
-          <%= f.label :postal_code, "Postal Code (used to find nearby musicians)"  %>
-          <%= f.text_field :postal_code %>
-
-          <%= f.label "Genres (separated by commas)" %>
-          <%= f.text_field :genre_list %>
-
-          <%= f.label "Instruments (separated by commas)" %>
-          <%= f.text_field :instrument_list %>
-        </div>
-      </div>
-
-      <div class="small-10 small-centered medium-8 large-uncentered large-6 columns">
-        <%= f.label "City" %>
-        <%= f.text_field :city %>
-
-        <%= f.label "Biography" %>
-        <%= f.text_area :bio %>
-
-        <%= f.label "What are you looking for?" %>
-        <%= f.text_area :looking_for %>
-
-        <%= f.label "Link to Recordings, Band Site etc."  %>
-        <%= f.text_field :personal_url %>
-
-        <%= f.label "Choose a Photo" %>
-        <%= f.file_field :avatar %>
-
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
       </div>
     </div>
+  <% end %>
+
+  <div class="row">
+    <div class="small-10 small-centered medium-8 large-uncentered large-6 columns">
+
+    <div class="row">
+      <div class="required">
+        <div class="small-6 columns">
+          <%= f.label :first_name, "First Name" %>
+          <%= f.text_field :first_name %>
+        </div>
+        <div class="small-6 columns">
+          <%= f.label :last_name, "Last Name" %>
+          <%= f.text_field :last_name %>
+        </div>
+      </div>
+    </div>
+
+      <div class="required">
+
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+
+        <%= f.label :password_confirmation, "Confirm Password" %>
+        <%= f.password_field :password_confirmation %>
+
+        <%= f.label :postal_code, "Postal Code (used to find nearby musicians)"  %>
+        <%= f.text_field :postal_code %>
+      </div>
+
+        <%= f.label "Genres (separated by commas)" %>
+        <%= f.text_field :genre_list %>
+
+        <%= f.label "Instruments (separated by commas)" %>
+        <%= f.text_field :instrument_list %>
+    </div>
+
+    <div class="small-10 small-centered medium-8 large-uncentered large-6 columns">
+      <%= f.label "City" %>
+      <%= f.text_field :city %>
+
+      <%= f.label "Biography" %>
+      <%= f.text_area :bio %>
+
+      <%= f.label "What are you looking for?" %>
+      <%= f.text_area :looking_for %>
+
+      <%= f.label "Link to Recordings, Band Site etc."  %>
+      <%= f.text_field :personal_url %>
+
+      <%= f.label "Choose a Photo" %>
+      <%= f.file_field :avatar %>
+
+    </div>
+  </div>
 
 <div class="row">
   <div class="small-10 small-centered medium-8 large-uncentered large-6 columns">
@@ -77,3 +77,4 @@
   <% end %>
   </div>
 </div>
+

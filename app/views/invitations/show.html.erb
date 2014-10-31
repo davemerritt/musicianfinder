@@ -1,20 +1,22 @@
 <div class="row">
-  <h3><%= link_to "Back to Inbox", user_invitations_path(@user) %></h3>
-  <table>
-    <thead>
-      <tr>
-        <th width="100">From</th>
-        <th width="500">Message</th>
- 	      <th width="150">Sent</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><%= link_to "#{@invitation.user.full_name}", "/users/#{@invitation.user_id}" %></td>
-        <td><%= simple_format @invitation.content %></td>
-        <td><%= @invitation.created_at.to_formatted_s(:long) %></td>
-      </tr>
-    </tbody>
-  </table>
-  <%= render "users/reply" %>
+  <div class="small-10 small-centered columns">
+    <h3><%= link_to "Back to Inbox", user_invitations_path(@user) %></h3>
+    <table>
+      <thead>
+        <tr>
+          <th width="100">From</th>
+          <th width="500">Message</th>
+   	      <th width="150">Sent</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= link_to "#{@invitation.user.full_name}", "/users/#{@invitation.user_id}" %></td>
+          <td><%= simple_format @invitation.content %></td>
+          <td><%= @invitation.created_at.to_formatted_s(:long) %></td>
+        </tr>
+      </tbody>
+    </table>
+    <%= render "users/reply" %>
+  </div>
 </div>

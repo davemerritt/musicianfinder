@@ -7,24 +7,22 @@
           <th width="100">From</th>
           <th width="500">Message</th>
           <th width="150">Sent</th>
-          <th width="110">Mark as Read</th>
-          <th width="60">Reply</th>
+          <th width="130">Status</th>
         </tr>
       </thead>
           <% @user.invitations_received.each do |invite| %>
         <tbody>
           <tr class="<%= 'unread_mail' unless invite.recipient_read %>">
             <td><%= link_to "#{invite.user.full_name}", user_path(invite.user_id) %></td>
-            <td><%= simple_format invite.content %></td>
+            <td><%= link_to invite.content, invitation_path(invite)  %></td>
             <td><%= invite.created_at.to_formatted_s(:long) %></td>
             <td>
             <% if invite.recipient_read %>
-              <%= link_to "Mark as Unread", toggle_read_invitation_path(invite), method: :patch %>
+              <%= link_to "Mark as unread", toggle_read_invitation_path(invite), method: :patch %>
             <% else %>
-              <%= link_to "Mark as Read", toggle_read_invitation_path(invite), method: :patch %>
+              <%= link_to "Mark as read", toggle_read_invitation_path(invite), method: :patch %>
             <% end %>
             </td>
-            <td><%= link_to "Reply", invitation_path(invite)  %></td>
           </tr>
         </tbody>
       <% end %>
@@ -37,7 +35,7 @@
           <th width="100">To</th>
           <th width="500">Message</th>
           <th width="150">Sent</th>
-          <th width="170">Mark as Read</th>
+          <th width="130">Status</th>
         </tr>
       </thead>
         <% @user.invitations_sent.each do |invite| %>
@@ -48,9 +46,9 @@
           <td><%= invite.created_at.to_formatted_s(:long) %></td>
            <td>
             <% if invite.sender_read %>
-              <%= link_to "Mark as Unread", toggle_read_invitation_path(invite), method: :patch  %>
+              <%= link_to "Mark as unread", toggle_read_invitation_path(invite), method: :patch  %>
             <% else %>
-              <%= link_to "Mark as Read", toggle_read_invitation_path(invite), method: :patch %>
+              <%= link_to "Mark as read", toggle_read_invitation_path(invite), method: :patch %>
             <% end %>
           </td>
         </tr>

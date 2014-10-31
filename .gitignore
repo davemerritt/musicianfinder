@@ -18,5 +18,6 @@
 #Ignore Sublime workspace files
 *.sublime-workspace
 
-#SimpleCov files
+
+#From Simplecov
 coverage
