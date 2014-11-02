@@ -1,18 +1,6 @@
 <%= form_for @user, html: { multipart: true } do |f| %>
-  <% if @user.errors.any? %>
-    <div class="row">
-      <div class="small-10 small-centered medium-8 large-uncentered large-6 columns">
-        <h2>
-          <%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:
-        </h2>
-      <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-      </div>
-    </div>
-  <% end %>
+
+  <%= render 'shared/error_messages', object: f.object %>
 
   <div class="row">
     <div class="small-10 small-centered medium-8 large-uncentered large-6 columns">

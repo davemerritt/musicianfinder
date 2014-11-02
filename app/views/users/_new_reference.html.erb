@@ -4,7 +4,7 @@
 
   <%= form_for([@user, @reference], remote: true ) do |f| %>
     <div id="reference-form-errors" >
-      <%= render :partial => "/users/reference_form_errors" %>
+      <%= render 'shared/reference_form_errors' %>
     </div>
 
     <%= f.text_area :comment %>

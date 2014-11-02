@@ -1,0 +1,15 @@
+<% if object.errors.any? %>
+    <div class="row">
+      <div class="small-10 small-centered medium-8 large-uncentered large-6 columns">
+        <div id="error_explanation">
+          <h2><%= pluralize(object.errors.count, "error") %> found.</h2>
+         <ul>
+            <% object.errors.full_messages.each do |msg| %>
+            <li>* <%= msg %></li>
+        <% end %>
+        </ul>
+         </div>
+      </div>
+    </div>
+  </div>
+<% end %>

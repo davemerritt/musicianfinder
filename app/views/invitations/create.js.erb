@@ -1,6 +1,6 @@
 <% if @invitation.errors.present? %>
-  $("#message-form-errors").html("<%= escape_javascript(render(:partial => '/users/message_form_errors')) %>"); 
+  $("#message-form-errors").html("<%= escape_javascript(render(:partial => '/shared/message_form_errors')) %>");
 <% else %>
-  $("#message-form-errors").html("<%= escape_javascript(render(:partial => '/users/message_form_errors')) %>");
-  alert("Message Sent"); 
+  $("#message-form-errors").html("<%= escape_javascript(render(:partial => '/shared/message_form_errors')) %>");
+  alert("Message Sent");
 <% end %>

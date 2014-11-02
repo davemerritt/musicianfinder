@@ -2,7 +2,7 @@
    <div class="small-10 small-centered columns">
     <%= form_for([@user, @reply], remote: true ) do |f| %>
       <div id="message-form-errors">
-        <%= render :partial => "/users/message_form_errors" %>
+        <%= render 'shared/message_form_errors' %>
       </div>
     </div>
 

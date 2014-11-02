@@ -5,11 +5,11 @@ class Reference < ActiveRecord::Base
   validates_presence_of :feedback_value, message: "rating must be selected"
 
   validates_presence_of :comment, :source_id, :target_id
-  validates :source_id, :uniqueness => { :scope => :target_id, :message => "You may only write one reference per user. You may manage your references from your home page" }
+  validates :source_id, uniqueness: { scope: :target_id, message: "You may only write one reference per user. You may manage your references from your home page" }
   validate :check_self_reference
 
   def check_self_reference
-    errors.add(:base, "You can't leave a review for yourself") if source_id == target_id
+    errors.add(:base, "You can't leave a reference for yourself") if source_id == target_id
   end
 
   def feedback_textifier

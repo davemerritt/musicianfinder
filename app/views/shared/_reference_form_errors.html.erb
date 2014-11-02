@@ -1,0 +1,14 @@
+<% if @reference.errors.any? %>
+    <div class="row">
+      <div class="small-10 small-centered medium-8 large-uncentered large-6 columns">
+        <div id="error_explanation">
+          <h2><%= pluralize(@reference.errors.count, "error") %> prohibited this reference from being saved:</h2>
+          <ul>
+            <% @reference.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    </div>
+  </div>
+<% end %>
